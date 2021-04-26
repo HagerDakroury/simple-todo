@@ -1,9 +1,10 @@
-module.exports = todoController;
+var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'get better'}];
 
 
-var todoController = function(app){
+module.exports = function(app){
 
     app.get('/todo', function(req,res){
+        res.render('todo', {todos: data});
         
 
     });
@@ -18,4 +19,5 @@ var todoController = function(app){
 
     });
 
-};
+};;
+
