@@ -13,9 +13,12 @@ module.exports = function(app){
         res.json(data);
     });
 
-    app.delete('/todo', function(req,res){
-        
+    app.delete('/todo/:item', function(req,res){
+        data = data.filter(function(todo){
+            return todo.item.trim().replace(/ /g, '-') !== req.params.item;
+        });
+        res.json(data);
+
     });
 
-};;
-
+};

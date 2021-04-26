@@ -16,10 +16,21 @@ window.onload = function(){
   };
 
 
-  document.getElementsByClassName("todo-item").onclick = function onClick(){
-    var item = {item: document.getElementById("todo-item").text().replace(/ /g, "-")};
+  var items = document.getElementsByClassName('todo-item');
+  for (var i=0; i<items.length; i++){
+    items[i].onmousedown = function onClick(){
+      var item = this.textContent.trim().replace(/ /g, "-");
+      $.ajax({
+        type: 'DELETE',
+        url: '/todo/' + item,
+        success: function(data){
+          location.reload();
+        }
+      });
+      
+    };
+  
 
-    
-  };
-
+  }
+  
 };
