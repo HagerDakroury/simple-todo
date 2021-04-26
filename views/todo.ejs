@@ -8,16 +8,18 @@
 </head>
 <body>
   <div id="todo-table">
-    <form>
+    <form id="todo-form">
       <input type="text" name='item' placeholder="Add new item..." required />
       <button type="submit">Add Item</button>
     </form>
     <ul>
       <% for (var i=0; i< todos.length; i++){ %>
-        <li><%= todos[i].item %></li>
+        <li class="todo-item"><%= todos[i].item %></li>
       <%}%>
   
     </ul>
   </div>
 </body>
+
+<script src="/public/assets/todo-list.js"></script>
 </html>
